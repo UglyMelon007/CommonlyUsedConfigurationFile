@@ -1,0 +1,13 @@
+customization:
+  distribution_code_name: Weasel
+  distribution_version: 0.9.30
+  generator: "Weasel::UIStyleSettings"
+  modified_time: "Fri Oct 16 20:13:45 2015"
+  rime_version: 1.1.2
+patch:
+  "style/color_scheme": modern_warfare
+  style/display_tray_icon: false
+  style/corner_radius: 3           # 窗口圆角半径
+  style/border_height: 4          # 窗口边界高度，大于圆角半径才有效果
+  tyle/border_width: 4  
+  
