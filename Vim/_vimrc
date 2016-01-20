@@ -63,3 +63,24 @@ endfunction
 call pathogen#infect()
 au FileType javascript set dictionary+=$VIM.'\vimfiles\dict\node.dict'
 set runtimepath^=vimfiles/bundle/ctrlp.vim
+" ÔÚä¯ÀÀÆ÷Ô¤ÀÀ for win32
+function! ViewInBrowser(name)
+    let file = expand("%:p")
+    exec ":update " . file
+    let l:browsers = {
+        \"cr":"C:/Program Files (x86)/Google/Chrome/Application/chrome.exe",
+        \"ie":"C:/progra~1/intern~1/iexplore.exe"
+    \}
+    let htdocs='E:\\apmxe\\htdocs\\'
+    let strpos = stridx(file, substitute(htdocs, '\\\\', '\', "g"))
+    if strpos == -1
+       exec ":silent !start ". l:browsers[a:name] ." file://" . file
+    else
+        let file=substitute(file, htdocs, "http://127.0.0.1:8090/", "g")
+        let file=substitute(file, '\\', '/', "g")
+        exec ":silent !start ". l:browsers[a:name] file
+    endif
+endfunction
+nmap <f4>ie :call ViewInBrowser("ie")<cr>
+nmap <f4>cr :call ViewInBrowser("cr")<cr>
+
