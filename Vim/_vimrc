@@ -1,4 +1,12 @@
 filetype plugin indent on
+filetype plugin on
+syntax on
+
+"文件打开跳转上次编辑位置
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
+
 set nocompatible
 source $VIMRUNTIME/vimrc_example.vim
 source $VIMRUNTIME/mswin.vim
@@ -16,7 +24,6 @@ set shiftwidth=4
 map <F3> :NERDTreeMirror<CR>
 map <F3> :NERDTreeToggle<CR>
 au InsertLeave *.* write
-syntax on
 set nowrap
 set number
 set nobackup
@@ -40,6 +47,17 @@ let g:vimwiki_use_mouse = 1
 "存放vimwiki转换为html网页时的保存路径
 let g:vimwiki_list = [{'path': 'E:/chao_data/vimwiki/', 
 \ 'path_html': 'E:/chao_data/vimwiki/html/',}]
+
+"calendar
+" 对中文用户来说，我们并不怎么需要驼峰英文成为维基词条
+let g:vimwiki_camel_case = 0
+ 
+" 标记为完成的 checklist 项目会有特别的颜色
+let g:vimwiki_hl_cb_checked = 1
+ 
+" 我的 vim 是没有菜单的，加一个 vimwiki 菜单项也没有意义
+let g:vimwiki_menu = ''
+
 
 " 在浏览器预览 for win32
 function! ViewInBrowser(name)
