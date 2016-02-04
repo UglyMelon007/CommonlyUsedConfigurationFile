@@ -28,27 +28,29 @@ set nowrap
 set number
 set nobackup
 set selection=inclusive
+"设置缩进方式
 set fdm=indent
+"设置字符编码方式
 set encoding=utf-8
-set fileencodings=utf-8,chinese,latin-1
-if has("win32")
-set fileencoding=chinese
-else
+set fileencodings=utf-8,chinese,latin-1,cp936
 set fileencoding=utf-8
-endif
+set termencoding=utf-8
 "解决菜单乱码
 source $VIMRUNTIME/delmenu.vim
 source $VIMRUNTIME/menu.vim
 "解决consle输出乱码
 language messages zh_CN.utf-8
+
 " vimwiki
 let g:vimwiki_use_mouse = 1
 "存放vimwiki文件路径
 "存放vimwiki转换为html网页时的保存路径
 let g:vimwiki_list = [{'path': 'E:/chao_data/vimwiki/', 
 \ 'path_html': 'E:/chao_data/vimwiki/html/',}]
+"\  'syntax': 'markdown',}]使用markdown解析语法
 
-"calendar
+" 是否开启按语法折叠  会让文件比较慢
+let g:vimwiki_folding = ' '
 " 对中文用户来说，我们并不怎么需要驼峰英文成为维基词条
 let g:vimwiki_camel_case = 0
  
